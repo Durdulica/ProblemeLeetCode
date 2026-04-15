@@ -263,5 +263,94 @@ namespace probleme
 
             Console.WriteLine(rez);
         }
+
+        public void Ex6()
+        {//se dau 2 liste sortate. Sa se combine listele intr-o singura lista sortata crescator
+            List<int> list1 = new List<int>();
+            list1.Capacity = 10;
+            list1.Add(1); list1.Add(2); list1.Add(4);
+
+            List<int> list2 = new List<int>();
+            list2.Capacity = 10;
+            list2.Add(1); list2.Add(3); list2.Add(4);
+
+            List<int> result = new List<int>();
+            result.Capacity = 20;
+
+            int i = 0, j = 0;
+            while (i < list1.Count && j < list2.Count)
+            {
+                if (list1[i] < list2[j])
+                {
+                    result.Add(list1[i++]);
+                }
+                else if (list1[i] > list2[j])
+                {
+                    result.Add(list2[j++]);
+                }
+                else
+                {
+                    result.Add(list1[i++]);
+                    result.Add(list2[j++]);
+                }
+            }
+
+            for (; i < list1.Count; i++)
+            {
+                result.Add(list1[i++]);
+            }
+
+            for (; j < list2.Count; j++)
+            {
+                result.Add(list2[j++]);
+            }
+
+            for (int k = 0; k < result.Count; k++) { 
+                Console.Write(result[k] + " ");
+            }
+        }
+
+        public int Ex7(int[] nums)
+        {   //se da un vector sortat, sa se elimine toate dublurile a. i. fiecare element din vector sa fie unic si vectorul sa ramana in ordine cresc.
+            //Dupa eliminarea dublurilor, sa se returneze numarul de elemente unice
+            int index = 1;
+            for (int i = 1; i < nums.Length; i++)
+            {
+                if (nums[i] != nums[i - 1])
+                {
+                    nums[index++] = nums[i];
+                }
+            }
+            return index;
+        }
+
+        public int Ex8(int[] nums, int val)
+        {   //se da un vector si o valoare, sa se elimine toate elementele egale cu acea valoare din vector si apoi sa se returneze dimensiunea vectorului
+            int dim = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != val)
+                {
+                    nums[dim++] = nums[i];
+                }
+            }
+            return dim;
+        }
+
+        public int Ex9(int[] nums, int target)
+        {   //se da un vector sortat si o valoare, sa se returneze indexul la care este gasita valoarea sau indexul la care ar trebui pusa
+            //in cazul in care valoarea nu se afla in vector
+
+            int mij =-1, st = 0, dr = nums.Count() - 1;
+            while (st < dr)
+            {
+                mij = (st + dr) / 2;
+                if(nums[mij] < target) st = mij;
+                if(nums[mij] > target) dr = mij;
+            }
+
+            return mij;
+        }
     }
 }
