@@ -83,5 +83,16 @@ namespace probleme
 
             return -1;
         }
+
+        public int Ex3(string s)
+        {   //se da un sir format din cuvinte si spatii, sa se returneze dimensiunea ultimului cuvant din sir
+            string[] cuv = s.Split(' ');
+            int index = cuv.Length - 1;
+            while (cuv[index] == "")
+            {
+                index--;
+            }
+            return cuv[index].Length;
+        }
     }
 }

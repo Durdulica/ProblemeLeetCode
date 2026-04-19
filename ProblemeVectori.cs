@@ -352,5 +352,70 @@ namespace probleme
 
             return mij;
         }
+
+        public bool Equal9(int number)
+        {
+            return number == 9;
+        }
+        public int[] Ex10(int[] digits)
+        {//se da un vector de numere, unde fiecare element este a i-a cifra a unui numar. Sa se adauge 1 la acel numar si sa se returneze un vector
+         //Input: digits = [1, 2, 3]
+         //Output: [1, 2, 4]
+         //Explanation: The array represents the integer 123.
+         //Incrementing by one gives 123 + 1 = 124.
+         //Thus, the result should be[1, 2, 4].
+
+
+
+            if(digits.All(Equal9))
+            {
+                int[] newDigits = new int[digits.Length + 1];
+                newDigits[0] = 1;
+                for (int i = 1; i < digits.Length + 1; i++)
+                {
+                    newDigits[i] = 0;
+                }
+                return newDigits;
+            }
+            else
+            {
+                int[] newDigits = new int[digits.Length];
+                int index = digits.Length - 1, last;
+                if (digits[index] + 1 > 9)
+                {
+                    last = 1;
+                    newDigits[index] = (digits[index] + 1) % 10;
+                }
+                else
+                {
+                    newDigits[index] = digits[index] + 1;
+                    last = 0;
+                }
+                index--;
+                while (index >= 0)
+                {
+
+                    if (digits[index] + last > 9)
+                    {
+                        newDigits[index] = (digits[index] + last) % 10;
+                        last = 1;
+                    }
+                    else
+                    {
+                        newDigits[index] = digits[index] + last;
+                        last = 0;
+                    }
+                    index--;
+                }
+                return newDigits;
+            }
+        }
+
+        public int Ex11(int x)
+        {   //se da un numar pozitiv x, sa se returneze radacina lui x rotunjita in jos catre un numar natural
+            int i;
+            for (i = 1; i <= x / i; i++) ;
+            return i - 1;
+        }
     }
 }
