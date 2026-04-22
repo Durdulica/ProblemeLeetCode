@@ -6,6 +6,6 @@ internal class Program
         var siruri = new ProblemeSiruri();
         var vectori = new ProblemeVectori();
 
-        Console.WriteLine(vectori.Ex10([1,2,3]));
+        Console.WriteLine(vectori.Ex12(2));
     }
 }

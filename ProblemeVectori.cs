@@ -357,6 +357,7 @@ namespace probleme
         {
             return number == 9;
         }
+
         public int[] Ex10(int[] digits)
         {//se da un vector de numere, unde fiecare element este a i-a cifra a unui numar. Sa se adauge 1 la acel numar si sa se returneze un vector
          //Input: digits = [1, 2, 3]
@@ -416,6 +417,32 @@ namespace probleme
             int i;
             for (i = 1; i <= x / i; i++) ;
             return i - 1;
+        }
+
+        public int SumaVec(int[] v, int dim)
+        {
+            int suma = 0;
+            for(int i = 0; i < dim; i++)
+            {
+                suma += v[i];
+            }
+            return suma;
+        }
+
+        int Fibbo(int n)
+        {
+            int[] v = new int[n + 1];
+            v[0] = 0;
+            v[1] = 1;
+            for (int i = 2; i <= n; i++)
+            {
+                v[i] = v[i - 1] + v[i - 2];
+            }
+            return v[n];
+        }
+        public int Ex12(int n)
+        {   //urcam pe o scara cu n scari. La fiecare pas putem urca 1 sau 2 trepte. In cate modalitati putem urca scara?
+            return Fibbo(n + 1);
         }
     }
 }
