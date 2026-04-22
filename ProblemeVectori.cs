@@ -183,6 +183,8 @@ namespace probleme
         {
             //se da un numar roman sub forma de string. Sa se transforme in int
             //se garanteaza ca inputul este un numar roman valid
+
+            //tin minte ca ati spus ca se face cu mapare....
             string s = Console.ReadLine();
             int rez = 0;
             for(int i  = 0; i < s.Length; i++)
@@ -342,6 +344,8 @@ namespace probleme
         {   //se da un vector sortat si o valoare, sa se returneze indexul la care este gasita valoarea sau indexul la care ar trebui pusa
             //in cazul in care valoarea nu se afla in vector
 
+            //la verificare am avut o complexitate prea mare, cum as putea lucra mai eficient?
+
             int mij =-1, st = 0, dr = nums.Count() - 1;
             while (st < dr)
             {
@@ -414,8 +418,9 @@ namespace probleme
 
         public int Ex11(int x)
         {   //se da un numar pozitiv x, sa se returneze radacina lui x rotunjita in jos catre un numar natural
+            //exista o varianta mai buna de rezolvare?
             int i;
-            for (i = 1; i <= x / i; i++) ;
+            for (i = 1; i <= x / i; i++);
             return i - 1;
         }
 

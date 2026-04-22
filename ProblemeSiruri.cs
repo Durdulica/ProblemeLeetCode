@@ -10,6 +10,8 @@ namespace probleme
     {
         public bool Ex1(string s)
         {//se da un sir care contine caracterele '(', ')' , '{', '}', '[' si ']', sa se determine daca stringul are parantezele intr-o ordine corecta
+
+        //rezolvarea este corecta, dar din nou mi se pare ca am facut o varianta mai grea, exista o cale mai simpla de rezolvare?
             Stack<char> stack = new Stack<char>();
             s = s.Trim();
 
@@ -95,6 +97,11 @@ namespace probleme
             return cuv[index].Length;
         }
 
-
+        public void Ex4()
+        {
+            //https://leetcode.com/problems/longest-common-prefix/
+            //stiu ca am facut in c++ un algoritm de olimpiada cu acest model de problema, dar pare greu de implementat pentru n
+            //cuvinte. Ati putea sa imi aratati la ora daca exista o varianta mai simpla de rezolvare in c#?
+        }
     }
 }
