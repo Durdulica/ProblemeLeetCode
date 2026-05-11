@@ -103,5 +103,37 @@ namespace probleme
             //stiu ca am facut in c++ un algoritm de olimpiada cu acest model de problema, dar pare greu de implementat pentru n
             //cuvinte. Ati putea sa imi aratati la ora daca exista o varianta mai simpla de rezolvare in c#?
         }
+
+        public bool Ex5(string s)
+        {//o fraza este un palindrom daca, dupa convertirea literelor mari in litere mici si eliminarea tuturor caracterelor care nu fac
+         //parte din alfabet, se citeste la fel din ambele parti.
+            s = s.ToLower().Trim();
+
+            if (s == null)
+            {
+                return true;
+            }
+
+            foreach (char c in s) {
+                bool caracterPermis = char.IsLetter(c);
+                
+                if (!caracterPermis) {
+
+                    s.Replace(c, 't');
+                }
+            }
+
+            Console.WriteLine(s);
+
+            for(int i = 0; i < s.Length/2; i++)
+            {
+                if (s[i] != s[s.Length - i - 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }

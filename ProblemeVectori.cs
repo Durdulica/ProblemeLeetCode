@@ -445,9 +445,74 @@ namespace probleme
             }
             return v[n];
         }
+
         public int Ex12(int n)
         {   //urcam pe o scara cu n scari. La fiecare pas putem urca 1 sau 2 trepte. In cate modalitati putem urca scara?
             return Fibbo(n + 1);
         }
+
+        public int[][] Ex13(int numRows)
+        {   //sa se calculeze primele numRows linii ale triunghiului lui Pascal
+            int[][] mat = new int[numRows][];
+            for(int i = 0; i < numRows; i++)
+            {
+                mat[i] = new int[i+1];
+                for (int j = 0; j <= i; j++)
+                {
+                    if(j == 0 || j == i)
+                    {
+                        mat[i][j] = 1;
+                    }
+                    else
+                    {
+                        mat[i][j] = mat[i- 1][j - 1] + mat[i- 1][j];
+                    }
+                }
+            }
+
+            return mat;
+        }
+
+        public int[] Ex14(int rowIndex)
+        {   //sa se returneze linia rowIndex(indexat de la 0) a triunghiului lui Pascal
+            int[][] mat = new int[rowIndex][];
+            for (int i = 0; i <= rowIndex; i++)
+            {
+                mat[i] = new int[i + 1];
+                for (int j = 0; j <= i; j++)
+                {
+                    if (j == 0 || j == i)
+                    {
+                        mat[i][j] = 1;
+                    }
+                    else
+                    {
+                        mat[i][j] = mat[i - 1][j - 1] + mat[i - 1][j];
+                    }
+                }
+            }
+
+            return mat[rowIndex];
+        }
+
+        public int Ex15(int[] prices) 
+        {   //se da un vector de preturi, unde prices[i] este pretul unor stocuri in ziua i. Sa se aleaga o singura zi in care se cumpara stocuri si
+            //o singura in in viitorul celei precedente in care sa se vanda pentru a maximiza profitul
+            int buy = prices[0];
+            int profit = 0;
+            for (int i = 1; i < prices.Length; i++) {
+                if (prices[i] < buy)
+                {
+                    buy = prices[i];
+                }
+                else if(prices[i] - buy > profit)
+                {
+                    profit = prices[i] - buy;
+                }
+            }
+            return profit;
+        }
+
+        
     }
 }
